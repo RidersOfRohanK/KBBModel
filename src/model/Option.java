@@ -34,8 +34,11 @@ public class Option implements Serializable {
 
     public String toString() {//wouldn't let me make this protected oddly enough
         StringBuffer s = new StringBuffer();
+        s.append("{");
         s.append(name);
+        s.append(",");
         s.append(price);
+        s.append("}");
         return s.toString();
     }
 }

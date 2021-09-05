@@ -12,7 +12,7 @@ public class Automobile implements Serializable {
     private String make;
     private String modelName;
 
-    public Automobile(String modelName, String make,double basePrice) {
+    public Automobile(String modelName, String make, double basePrice) {
 
         optionSets = new ArrayList<>();
         this.basePrice = basePrice;
@@ -23,18 +23,20 @@ public class Automobile implements Serializable {
     }
 
     public String getName() {
-        return getModelName() + " " + getMake();
+
+        return getMake()+ " " + getModelName() ;
     }
 
-    public void addNewOptionSet(OptionSet o){
+    public void addNewOptionSet(OptionSet o) {
         optionSets.add(o);
     }
-    public void addNewOption(Option o,String optionSetName){
+
+    public void addNewOption(Option o, String optionSetName) {
         OptionSet op = getOptionSet(optionSetName);
         op.addOption(o);
     }
 
-    public void addNewOption(Option o,OptionSet op){
+    public void addNewOption(Option o, OptionSet op) {
         op.addOption(o);
     }
 
@@ -77,7 +79,6 @@ public class Automobile implements Serializable {
         return totalPrice;
     }
 
-
     public OptionSet getOptionSet(String name) {
         for (int i = 0; i < optionSets.size(); i++) {
             OptionSet optionSet = optionSets.get(i);
@@ -109,6 +110,11 @@ public class Automobile implements Serializable {
         System.out.println("No such optionset with that name");
     }
 
+    public void updateOptionSetName(String optionSetName, String newName) {
+        OptionSet optionSet = getOptionSet(optionSetName);
+        optionSet.setName(newName);
+    }
+
     public void deleteOptionSet(int index) {
         optionSets.remove(index);
     }
@@ -124,9 +130,31 @@ public class Automobile implements Serializable {
         }
     }
 
+    public String getOptionChoiceString(String setName) {
+        OptionSet op = getOptionSet(setName);
+        Option choice = op.getOptionChoice();
+        return choice.getName();
+    }
+
+    public double getOptionChoicePrice(String setName) {
+        OptionSet op = getOptionSet(setName);
+        Option choice = op.getOptionChoice();
+        return choice.getPrice();
+    }
+
+    public Option getOptionChoice(String setName) {
+        OptionSet optionSet = getOptionSet(setName);
+        return optionSet.getOptionChoice();
+    }
+
     public void updateOptionName(int indexOfOptionSet, String nameOfOption, String newName) {
         OptionSet o = optionSets.get(indexOfOptionSet);
         o.updatedOptionName(nameOfOption, newName);
+    }
+
+    public void setOptionChoice(String setName, String optionName) {
+        OptionSet op = getOptionSet(setName);
+        op.setOptionChoice(optionName);
     }
 
     public void updateOptionName(String optionSetName, String oldOptionName, String newName) {

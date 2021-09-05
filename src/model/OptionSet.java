@@ -76,11 +76,15 @@ public class OptionSet implements Serializable {
 
     public String toString() {//wouldn't let me make this protected for some reason
         StringBuffer s = new StringBuffer();
+        s.append("[");
+        s.append(name);//then adds name
         for (int i = 0; i < options.size(); i++) {//Goes through all options and uses their toString method
             Option option = options.get(i);
+            s.append(",");
             s.append(option.toString());
+
         }
-        s.append(name);//then adds name
+        s.append("]");
         return s.toString();
     }
 
