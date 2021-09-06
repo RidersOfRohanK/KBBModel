@@ -13,18 +13,14 @@ public class Driver3 {
 
         buildAuto.addAuto(a);
 
-
         buildAuto.printAuto("Ford Focus Wagon ZTW");
 
-        buildAuto.updateOptionPrice("Ford Wagon ZTW","Color","Fort Knox Gold",40);
-        buildAuto.updateOptionSetName("Ford Wagon ZTW","Transmission","Zoom Zoom");
+        buildAuto.updateOptionPrice("Ford Focus Wagon ZTW","Color","Fort Knox Gold",40);
+        buildAuto.updateOptionSetName("Ford Focus Wagon ZTW","Transmission","Zoom Zoom");
 
         buildAuto.printAuto("Ford Focus Wagon ZTW");
 
         buildAuto.removeAuto("Ford Focus Wagon ZTW");
 
-
-
-//        buildAuto.printAuto("Ford Focus Wagon ZTW"); // returns error so I know it's deleted it
     }
 }

@@ -55,7 +55,7 @@ public class FileParser {
                 }
 
             }buff.close();
-            System.out.println("Auto Has been sucessfully created!");
+            System.out.println("Auto Has been successfully created!");
             return newAuto;
         }catch(IOException e){
             System.out.println("Error ­­ " + e.toString());

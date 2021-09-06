@@ -9,12 +9,14 @@ public class Driver2 {
         BuildAuto auto = new BuildAuto();
 
 
-        auto.buildAuto("test");
+        Automobile a = auto.buildAuto("test");
 
-        auto.updateOptionPrice("Ford Wagon ZTW","Color","Fort Knox Gold",40);
-        auto.updateOptionSetName("Ford Wagon ZTW","Transmission","Zoom Zoom");
+        auto.addAuto(a);
 
-        auto.printAuto("Ford Wagon ZTW");
+        auto.updateOptionPrice("Ford Focus Wagon ZTW","Color","Fort Knox Gold",40);
+        auto.updateOptionSetName("Ford Focus Wagon ZTW","Transmission","Zoom Zoom");
+
+        auto.printAuto("Ford Focus Wagon ZTW");
 
 
 
