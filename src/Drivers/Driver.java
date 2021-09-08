@@ -7,7 +7,7 @@ import util.Serializer;
 public class Driver {
     public static void main(String[] args) {
         FileParser p = new FileParser();
-        Automobile a  = p.read("test");
+        Automobile a  = p.read("Ford Focus Wagon ZTW");
 
 
 

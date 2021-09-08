@@ -9,7 +9,7 @@ public class Driver3 {
         BuildAuto buildAuto = new BuildAuto();
 
 
-        Automobile a  = buildAuto.buildAuto("test");
+        Automobile a  = buildAuto.buildAuto("Ford Focus Wagon ZTW");
 
         buildAuto.addAuto(a);
 

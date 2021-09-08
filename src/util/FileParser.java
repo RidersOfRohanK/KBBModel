@@ -44,9 +44,9 @@ public class FileParser {
 
                     for (int i = 0; i < numOptions; i++) {
                         line = buff.readLine();
-
                         int indexOfComma = line.indexOf(",");
                         String optionName = line.substring(0,indexOfComma);
+
                         double price = Double.parseDouble(line.substring(indexOfComma+1));
                         Option newOption = new Option(optionName,price);
                         newAuto.addNewOption(newOption,newOptionSet);

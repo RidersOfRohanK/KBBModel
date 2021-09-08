@@ -130,6 +130,12 @@ public class Automobile implements Serializable {
         }
     }
 
+    public double getOptionPrice(String setName, String OptionName){
+        OptionSet op = getOptionSet(setName);
+        Option o = op.getOption(OptionName);
+        return o.getPrice();
+    }
+
     public String getOptionChoiceString(String setName) {
         OptionSet op = getOptionSet(setName);
         Option choice = op.getOptionChoice();

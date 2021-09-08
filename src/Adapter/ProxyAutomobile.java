@@ -1,12 +1,13 @@
 package Adapter;
 
+import exception.AutoException;
 import model.AutoTemplate;
 import model.Automobile;
 import util.FileParser;
 
 
 public abstract class ProxyAutomobile {
-    private AutoTemplate<Automobile> automobileLinkedHashMap = new AutoTemplate<>();
+    private static AutoTemplate<Automobile> automobileLinkedHashMap = new AutoTemplate<>();
 
     public Automobile buildAuto(String filename) {
         FileParser fp = new FileParser();
@@ -47,5 +48,14 @@ public abstract class ProxyAutomobile {
         automobileLinkedHashMap.addAuto(auto);
 
 
+    }
+
+    public Automobile getAuto(String name){
+        return automobileLinkedHashMap.getAuto(name);
+    }
+
+    public void fixAuto(int errorno){
+        AutoException autoException = new AutoException();
+        autoException.fix(errorno);
     }
 }
