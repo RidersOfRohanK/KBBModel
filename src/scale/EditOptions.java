@@ -3,7 +3,7 @@ package scale;
 import Adapter.BuildAuto;
 import model.Automobile;
 
-public class EditOptions extends Thread {
+public class EditOptions extends Thread implements editThreads{
     BuildAuto automobiles = new BuildAuto();
 
     public EditOptions() {

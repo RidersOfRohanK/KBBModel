@@ -1,5 +1,6 @@
 package util;
 
+import exception.AutoException;
 import model.Automobile;
 import model.Option;
 import model.OptionSet;
@@ -59,6 +60,8 @@ public class FileParser {
             return newAuto;
         }catch(IOException e){
             System.out.println("Error ­­ " + e.toString());
+            AutoException ae = new AutoException();
+            ae.addException(e);
         }
         System.out.println("The Automobile could not be created from the file, please try again");
         return null;

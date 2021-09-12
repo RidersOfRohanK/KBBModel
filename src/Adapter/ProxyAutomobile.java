@@ -56,6 +56,6 @@ public abstract class ProxyAutomobile {
 
     public void fixAuto(int errorno){
         AutoException autoException = new AutoException();
-        autoException.fix(errorno);
+        autoException.fixAuto(errorno);
     }
 }

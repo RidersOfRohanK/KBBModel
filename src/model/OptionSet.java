@@ -18,9 +18,9 @@ public class OptionSet implements Serializable {
         options = new ArrayList<Option>();
     }
 
-    protected void addOption(Option o){
+    public void addOption(Option o){
         options.add(o);
-    }
+    }//check
 
     protected void setName(String name) {
         this.name = name;

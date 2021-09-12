@@ -1,27 +1,33 @@
 package exception;
 
+import Adapter.fixAuto;
 import model.Automobile;
 
-public class AutoException extends Exception {
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
+public class AutoException extends Exception implements fixAuto {
+    Exception e;
     public AutoException(){
 
     }
 
-    public void fix(int errorNum){
+    public void fixAuto(int errorNum){
         switch (errorNum){
             case 1://missing name
                 fixReaderExceptions fixit1 = new fixReaderExceptions(errorNum);
-                break;
+                fixit1.addExeption(e);
+
             case 2://missing price
                 //add
-                break;
+
             case 3://missing optionSet name
                 //add
-                break;
+
             case 4://missing optionSet amount of Options
                 //add
-                break;
+
             case 5://missing option - -1 to 0 index for substring
                 //add
                 break;
@@ -29,10 +35,23 @@ public class AutoException extends Exception {
         }
     }
 
-    public void addToLog(String errorMessage){//prints and creates a running log
-        StringBuffer s = new StringBuffer();
-        System.out.println(errorMessage+java.time.LocalTime.now());
+    public void addException(Exception e){
+        this.e = e;
+    }
 
+    public void addToLog(String errorMessage){//prints and creates a running log
+        try {
+            StringBuffer s = new StringBuffer();
+            s.append(errorMessage);
+            s.append(java.time.LocalTime.now());
+            s.append("\n");
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("errorLog"));
+            writer.append(s.toString());
+            writer.close();
+        }catch(IOException e){
+            System.out.println(e.getStackTrace());
+        }
     }
 
 }
