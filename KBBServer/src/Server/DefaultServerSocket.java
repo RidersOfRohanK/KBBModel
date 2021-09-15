@@ -18,6 +18,7 @@ public class DefaultServerSocket extends Thread implements Debuggable {
 			this.server = new ServerSocket(port);
 		}
 		catch (IOException e) {
+
 			System.err.println("Could not listen on port " + port + " ... ");
 			System.exit(1);
 		}

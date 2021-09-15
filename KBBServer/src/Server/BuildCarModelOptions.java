@@ -7,7 +7,7 @@ import Adapter.ProxyAutomobile;
 import model.Automobile;
 
 
-public class BuildCarModelOptions extends ProxyAutomobile {
+public class BuildCarModelOptions extends ProxyAutomobile implements AutoServer {
 
 	////////// PROPERTIES //////////
 
@@ -26,10 +26,11 @@ public class BuildCarModelOptions extends ProxyAutomobile {
 	////////// INSTANCE METHODS //////////
 
 	public Object processRequest(Object obj) {
+		BuildAuto build = new BuildAuto();
 		Object toClient = null;
 
 		if (state == REQUEST_BUILD_AUTO) {
-			BuildAuto build = new BuildAuto();
+
 
 			build.addAuto((Automobile)obj);
 
@@ -37,7 +38,11 @@ public class BuildCarModelOptions extends ProxyAutomobile {
 					+ "Press any key to return to main menu";
 		}
 		else if (state == REQUEST_CONFIGURE_AUTO) {
-		//add code for configureauto
+
+			Automobile automobile = build.getAuto((String)obj);
+
+			return automobile;
+
 		}
 		else {
 
@@ -57,6 +62,7 @@ public class BuildCarModelOptions extends ProxyAutomobile {
 		}
 		else if (i == 2) {
 			this.state = REQUEST_CONFIGURE_AUTO;
+			System.out.println(state+" is the state");
 			output = "Select an Automobile from the following list to configure: \n" +
 					super.getAllModels();
 		}
@@ -67,6 +73,7 @@ public class BuildCarModelOptions extends ProxyAutomobile {
 		return output;
 	}
 
-
+	//needs to be able to get properties obj over stream then create an auto
+	//add the auto to a linked hash map
 
 }

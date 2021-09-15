@@ -68,6 +68,7 @@ public class DefaultSocketClient extends Thread implements Debuggable {
 			in.close();
 		}
 		catch (IOException e) {
+			e.printStackTrace();
 			System.err.println("Error handling client connection ... ");
 			System.exit(1);
 		}
@@ -109,10 +110,12 @@ public class DefaultSocketClient extends Thread implements Debuggable {
 				case 2: //Client request to configure Automobile
 					if (DEBUG)
 						System.out.println("Waiting for client to select Automobile ... ");
-					fromClient = Integer.parseInt(in.readObject().toString());
+					String objString = in.readObject().toString();
+					fromClient = objString;
 					if (DEBUG)
 						System.out.println("Sending Automobile object to client ... ");
 					toClient = protocol.processRequest(fromClient);
+
 					sendOutput(toClient);
 					break;
 
@@ -125,7 +128,6 @@ public class DefaultSocketClient extends Thread implements Debuggable {
 			System.exit(1);
 		}
 		catch (IOException e) {
-			e.printStackTrace();
 			System.err.println("Error in retrieving object from client ... ");
 			System.exit(1);
 		}
@@ -142,6 +144,7 @@ public class DefaultSocketClient extends Thread implements Debuggable {
 			out.close();
 		}
 		catch (IOException e) {
+
 			System.err.println("Error closing server output stream for client " + clientSocket.getInetAddress() + " ... ");
 		}
 

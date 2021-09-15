@@ -46,8 +46,6 @@ public abstract class ProxyAutomobile {
 
     public void addAuto(Automobile auto) {
         automobileLinkedHashMap.addAuto(auto);
-
-
     }
 
     public Automobile getAuto(String name){
