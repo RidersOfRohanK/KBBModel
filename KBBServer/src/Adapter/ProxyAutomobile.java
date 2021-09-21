@@ -52,9 +52,9 @@ public abstract class ProxyAutomobile {
         return automobileLinkedHashMap.getAuto(name);
     }
 
-    public void fixAuto(int errorno){
+    public Object fixAuto(int errorno){
         AutoException autoException = new AutoException();
-        autoException.fixAuto(errorno);
+        return autoException.fixAuto(errorno);
     }
 
     protected String getAllModels() {
