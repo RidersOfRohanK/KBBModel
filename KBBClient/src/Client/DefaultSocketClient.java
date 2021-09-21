@@ -62,7 +62,7 @@ public class DefaultSocketClient extends Thread implements Debuggable {
 				if (clientProtocol.isAutomobile(fromServer))
 					clientProtocol.configureAuto(fromServer);
 
-				System.out.println("Response to server: ");
+				System.out.println("Response to server: ");// needs to be in this format src/TestFiles/PropertiesTest.prop
 				toServer = stdIn.readLine();
 				if (toServer.toString().contains(".prop")) {
 					toServer = clientFTP.loadPropsFile(toServer.toString());

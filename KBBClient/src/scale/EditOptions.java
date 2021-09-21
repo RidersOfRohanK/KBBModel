@@ -62,5 +62,11 @@ public class EditOptions extends Thread implements editThreads{
             return automobiles.buildAuto(filename);
         }
     }
+
+    public void makeChoice(Automobile a, String optionSet,String optionName){
+        synchronized (this){
+            a.setOptionChoice(optionSet,optionName);
+        }
+    }
 }
 
